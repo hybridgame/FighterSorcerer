@@ -1,0 +1,85 @@
+// 2019-06-10
+// + Create git: https://github.com/hybridgame/f#s
+
+BACKUP ~f#s/backup~
+AUTHOR ~hybridgame~
+VERSION "2019.06.10"
+
+LANGUAGE ~Korean~  ~Korean~ ~f#s/Language/setupko.tra~
+
+BEGIN "Fighter/Sorcerer kit for Sorcerer" DESIGNATED 0
+INCLUDE "f#s/lib/fl#add_kit_ee.tpa"
+
+// Add kit
+ADD_KIT ~f#s~
+    // CLASWEAP.2DA : BG1 proficiencies. (deprecated)
+    ~f#s   1 1 1 1 1 1 1 1~
+    
+    // WEAPPROF.2DA : BG2 proficiencies
+    ~f#s   0 1 0 0 1 0 0 1 0 0 0 0 0 0 0 2 0 0 0 0 0 0 2 0 0 0 2 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+    
+    // ABCLASRQ.2DA : Minimum stats at character creation
+    ~f#s   16 16 16 11 16 11~
+    
+    // ABCLSMOD.2DA : Stat modifiers at character creation
+    ~f#s   0 0 0 0 0 0~
+    
+    // ABDCDSRQ.2DA : Stats requirement to dual-class
+    ~f#s   0 17 0 0 0 0~
+    
+    // ABDCSCRQ.2DA : Stats requirement to dual-class
+    ~f#s   0 0 0 17 0 0~
+    
+    //     LG LN LE NG TN NE CG CN CE ALIGNMNT.2DA : Selectable alignment
+    ~f#s   1  1  1  1  1  1  1  1  1~
+    
+    //     F C M T D R DUALCLAS.2DA : Dual possible classes
+    ~f#s   0 0 0 0 0 0~
+    
+    // Kit's own clab*.2da
+    ~f#s/2da/f#s.2da~
+    
+    // KITTABLE.2DA : Selectable race
+    ~K_S_H K_S_E K_S_HE~
+    
+    // KITLIST.2DA : Kit's usability flag
+    ~0x00004000    19~
+    
+    // High level abilities. prefix lu file required
+    ~So0~
+    
+    // 25stweap.2da : TOB starting items
+    ~* * * * * * * * * * * * * * * * * * * *~
+    
+    // Lowercase name
+    SAY @1
+    
+    // First uppercase name
+    SAY @1
+    
+    // Description
+    SAY @2
+
+// Kit detail
+LAF fl#add_kit_ee
+    STR_VAR
+        kit_name = ~f#s~
+        clswpbon = ~1 0 3~
+        hpclass = ~HPROG~
+END
+
+COPY ~f#s/spl~ ~override~
+
+BEGIN "Figter/Sorceror Nalia"
+REQUIRE_COMPONENT "setup-f#s.tp2" "0" @3
+REQUIRE_PREDICATE GAME_IS ~bg2ee~ @4
+
+COPY ~f#s/Nalia/NALIA.cre~ ~override/NALIA8.cre~
+COPY ~f#s/Nalia/NALIA.cre~ ~override/NALIA10.cre~
+COPY ~f#s/Nalia/NALIA.cre~ ~override/NALIA11.cre~
+COPY ~f#s/Nalia/NALIA.cre~ ~override/NALIA13.cre~
+COPY ~f#s/Nalia/NALIA.cre~ ~override/NALIA15.cre~
+
+COPY ~f#s/Nalia/NPRING02.itm~ ~override~
+
+EXTEND_BOTTOM ~NALIA.BCS~ ~f#s/Nalia/NALIA.BAF~

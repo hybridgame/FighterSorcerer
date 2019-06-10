@@ -1,0 +1,23 @@
+IF
+    InParty(Myself)
+    !Kit(Myself,F#S)
+THEN
+    RESPONSE #100
+        AddKit(F#S)
+END
+
+IF
+    InParty(Myself)
+    OR(2)
+        !HasItem("NPRING02",Myself)
+        !NumItemsParty("NPRING02",1)
+THEN
+    RESPONSE #100
+        SetInterrupt(FALSE)
+        DestroyItem("NPRING01")
+        TakePartyItem("NPRING02")
+        DestroyItem("NPRING02")
+        DestroyItem("NPRING02")
+        CreateItem("NPRING02",1,1,1)
+        SetInterrupt(TRUE)
+END
