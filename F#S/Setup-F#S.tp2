@@ -64,7 +64,6 @@ ADD_KIT ~f#s~
 LAF fl#add_kit_ee
     STR_VAR
         kit_name = ~f#s~
-        clswpbon = ~1 0 3~
         hpclass = ~HPROG~
 END
 

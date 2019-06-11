@@ -1,9 +1,11 @@
 IF
+    Global("FighterSorcererNalia","GLOBAL",0)
     InParty(Myself)
     !Kit(Myself,F#S)
 THEN
     RESPONSE #100
         AddKit(F#S)
+        SetGlobal("FighterSorcererNalia","GLOBAL",1)
 END
 
 IF
