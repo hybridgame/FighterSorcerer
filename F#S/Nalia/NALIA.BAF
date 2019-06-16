@@ -9,10 +9,11 @@ THEN
 END
 
 IF
-    InParty(Myself)
     OR(2)
         !HasItem("NPRING02",Myself)
         !NumItemsParty("NPRING02",1)
+    InParty(Myself)
+    Global("FighterSorcererNalia","GLOBAL",1)
 THEN
     RESPONSE #100
         SetInterrupt(FALSE)
