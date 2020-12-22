@@ -80,7 +80,7 @@ END
 
 COPY ~f#s/spl~ ~override~
 
-BEGIN "Figter/Sorceror Nalia"
+BEGIN "Fighter/Sorceror Nalia"
 REQUIRE_COMPONENT "setup-f#s.tp2" "0" @3
 REQUIRE_PREDICATE GAME_IS ~bg2ee~ @4
 
